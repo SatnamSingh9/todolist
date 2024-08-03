@@ -6,62 +6,66 @@
     $action = $_POST['user-action'];
 
      
-    $r = $conn->query($sql = ("select status, super from logins where username='".$userid."'"));
+    // $r = $conn->query($sql = ("select status from logins where username='".$userid."'"));
+    $resultlog = mysqli_query($conn,"select * from logins where username='".$userid."'") or die(mysqli_error($conn));
+    $row = mysqli_fetch_array($resultlog);
+    
 
+    if ($row[0] == $userid){
+        $statusfield = strtolower(trim($row[2]));
 
-
-    if ($r->num_rows != 1) {
-        echo '<script>alert("Invalid user name entered!")</script>';
-        include('admindashboard.php');
-        } else{
-            if ($action == 'Activate'){
-                $r = $conn->query($sql = ("select status, super from logins where username='".$userid."' and status = 'PENDING'"));
-                    if ($r->num_rows != 1) {
-                        echo '<script>alert("Only users with PENDING status can be activated!")</script>';
-                        include('admindashboard.php');
-                    } else{
-                        $sql = ("UPDATE logins set status = 'Active' where username='".$userid."'");
-                        echo '<script>alert("User is now activated!")</script>';
-                        include('admindashboard.php');
-                    };
-                };
-           
-            
-            if ($action == 'Terminate'){
-                $r = $conn->query($sql = ("select status, super from logins where username='".$userid."' and status = 'Active'"));
-                    if ($r->num_rows != 1) {
-                        echo '<script>alert("Only users with Active status can be terminated!")</script>';
-                        include('admindashboard.php');
-                    } else{
-                        $sql = ("UPDATE logins set status = 'Terminated' where username='".$userid."'");
-                        echo '<script>alert("User is now de-activated!")</script>';
-                        include('admindashboard.php');
-                    };
-                };
+        if ($action == 'Activate'){
+            switch ($statusfield){
+                case "pending":
+                    mysqli_query($conn,"UPDATE logins set status = 'Active' where username='".$userid."'");
+                    echo '<script>alert("User is now activated")</script>';
+                    include('admindashboard.php');
+                    break;
                 
-            if ($action == 'Grant Admin'){
-                $r = $conn->query($sql = ("select status, super from logins where username='".$userid."' and super = 'Yes'"));
-                    if ($r->num_rows == 1) {
-                        echo '<script>alert("User already has Admin access!")</script>';
-                        include('admindashboard.php');
-                    } else{
-                        $sql = ("UPDATE logins set super = 'Yes' where username='".$userid."'");
-                        echo '<script>alert("User granted Admin access!")</script>';
-                        include('admindashboard.php');
-                    };
-                };
+                case "active":
+                    echo '<script>alert("User is already activated!");</script>';
+                    include('admindashboard.php');
+                    break;
+                default :
+                    echo '<script>alert("Invalid value in status field!");</script>';
+            }
+        } elseif ($action == 'Terminate'){
+            switch ($statusfield){
+                case "active":
+                    mysqli_query($conn,"UPDATE logins set status = 'Pending' where username='".$userid."'");
+                    echo '<script>alert("User is now Terminated")</script>';
+                    include('admindashboard.php');
+                    break;
+                
+                case "pending":
+                    echo '<script>alert("User is already Terminated!");</script>';
+                    include('admindashboard.php');
+                    break;
 
+                default :
+                    echo '<script>alert("Invalid value in status field!");</script>';
+            }
+        } elseif ($action == 'Delete'){
+            
+            if(isset($row[1])){
+                mysqli_query($conn,"DELETE FROM logins where username = '$userid'");
+                echo '<script>alert("User is deleted Now!");</script>';
+                include('admindashboard.php');
+            } else {
+                echo '<script>alert("Invalid user name entered!");</script>';
+                include('admindashboard.php');
+            }
 
-            if ($action == 'Revoke Admin'){
-                $r = $conn->query($sql = ("select status, super from logins where username='".$userid."' and super = 'Yes'"));
-                        if ($r->num_rows != 1) {
-                            echo '<script>alert("User does not have Admin access.")</script>';
-                            include('admindashboard.php');
-                        } else{
-                            $sql = ("UPDATE logins set super = 'No' where username='".$userid."'");
-                            echo '<script>alert("Admin access revoked"")</script>';
-                            include('admindashboard.php');
-                        };
-                    };
-            };
+        } else {
+            echo '<script>alert("Invalid selection!");</script>';
+            include('admindashboard.php');
+        }
+
+    } else {
+
+        echo '<script>alert("Invalid user name entered!");</script>';
+        include('admindashboard.php');
+        
+    }
+
     ?>

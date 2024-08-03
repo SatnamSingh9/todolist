@@ -11,9 +11,9 @@ $pass =  $_POST['adminpwd'];
 $resultlog = mysqli_query($conn,"SELECT * from adminLogin") or die(mysqli_error($conn));
 $row = mysqli_fetch_array($resultlog);
 
-if ($row[2] != $user_name){
+if ($row[1] != $user_name){
 
-    if($row[3] != $pass) {
+    if($row[2] != $pass) {
         include('admindashboard.php');
     } else{
         echo '<script>alert("Incorrect Password.");</script>'; 

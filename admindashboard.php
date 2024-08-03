@@ -1,5 +1,5 @@
 <?php
- $useractions = ["Activate", "Terminate", "Grant Admin", "Revoke Admin"];
+ $useractions = ["Activate", "Terminate", "Delete"];
 
  function generateOptions($array) {
      $options = "";
