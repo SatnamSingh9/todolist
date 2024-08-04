@@ -86,13 +86,18 @@
                             if (isset($filter_status)){
 
                                 if($filter_status == "open"){
+                                    // echo '<p>' . $filter_status. '</p>';
                                     $query .= " where status = '$filter_status'";
                                 } elseif($filter_status == "closed"){
+                                    // echo '<p>' . $filter_priority. '</p>';
                                     $query .= " where status = '$filter_status'";
                                 } else {
+                                    // echo '<p>' . $sort_order. '</p>';
                                     $query .= " where status IN ('open', 'closed')";
                                 }
-
+                           
+                            
+                            
                             };
 
                             if (isset($filter_priority)){
@@ -121,7 +126,6 @@
 
                             $query_run = mysqli_query($conn, $query);
 
-                            $resultlog = mysqli_query($conn,"SELECT * from tasks") or die(mysqli_error($conn));
                             echo '<div id="filter_result">';
                             echo '<table>';
                             echo '<tr>';
@@ -134,7 +138,7 @@
                             echo '<th class="theading">Status</th>';
                             echo '</tr>';
                             echo "<br>";
-                            while($row = mysqli_fetch_array($resultlog)){
+                            while($row = mysqli_fetch_array($query_run)){
                                 echo '<tr>';
                                     echo '<td class="theading">' . $row[1]. '</td>';
                                     echo '<td class="theading">' . $row[2] . '</td>';
