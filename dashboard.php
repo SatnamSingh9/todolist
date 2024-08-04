@@ -51,8 +51,8 @@
                                     <div class="input-group mb-3">
                                         <label for="">Sort By:</label>
                                         <select name ="sort_by" class="form-control">
-                                            <option value="asc">Newest First</option>
-                                            <option value="desc">Oldest First</option>
+                                            <option value="desc">Newest First</option>
+                                            <option value="asc">Oldest First</option>
                                         </select>
                                     </div>
 
