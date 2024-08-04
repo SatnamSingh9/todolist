@@ -32,9 +32,9 @@
                                 <div class = "row">
                                     <label for="">Status:</label>
                                     <select name ="status_filter" class="form-control">
+                                        <option value="all">All</option>
                                         <option value="open">Open</option>
                                         <option value="closed">Closed</option>
-                                        <option value="all">All</option>
                                     </select>
                                 </div>
 
