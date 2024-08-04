@@ -2,7 +2,7 @@
 
 body {
     font-family: "Kumbh Sans", Arial, sans-serif;
-    background: url('../imgs/img1.jpg') no-repeat center center fixed;
+    background: url('./web.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #838383;
     margin: 0;
