@@ -1,0 +1,131 @@
+/* style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Kumbh+Sans:wght@100..900&family=Sedan:ital@0;1&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family:  "Kumbh Sans", sans-serif;
+    color: #333;
+    background: url('../imgs/img1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow-y: auto;
+}
+
+header {
+    text-align: center;
+    color: aliceblue;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px);
+}
+
+.container {
+    margin-top: 10px;
+    max-width: 500px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+h4, h5 {
+    margin: 15px 0 0;
+    font-weight: normal;
+}
+
+h4 a, h5 a {
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+h4 a:hover, h5 a:hover {
+    color: #0056b3;
+}
+
+
+/* Media Query for screens smaller than 600px */
+@media (max-width: 600px) {
+    body {
+        font-size: 0.9rem;
+        background-size: auto; 
+    }
+
+    header {
+        font-size: 0.9rem;
+        padding: 15px;
+    }
+
+    main {
+        height: auto; /* Allow main content to adjust height */
+        padding: 10px;
+    }
+
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    label {
+        font-size: 0.9rem;
+        margin: 5px 0 3px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        min-width: 80px;
+    }
+
+    h4, h5 {
+        font-size: 1rem;
+        margin: 10px 0 5px;
+    }
+}

@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Kumbh+Sans:wght@100..900&family=Sedan:ital@0;1&display=swap');
+
+body {
+    font-family: "Kumbh Sans", Arial, sans-serif;
+    background: url('../imgs/img1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #838383;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h2, h5 {
+    color: #303030;
+}
+
+.container_head {
+    font-size: medium;
+    text-align: center;
+}
+
+.citem {
+    color: #303030;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.citem:hover {
+    background-color: #555555;
+    color: #fff;
+}
+
+main {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 40px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    margin-top: 20px;
+}
+
+.row {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+    text-align: left;
+}
+
+input[type="text"], .form-control, select[name="user-action"] {
+    width: 30%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input[type="text"]::placeholder, .form-control option {
+    color: #888;
+}
+
+input[type="text"]:focus, .form-control:hover, select[name="user-action"]:hover {
+    border-color: #007bff;
+}
+
+.buttonfield {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    color: rgb(222, 0, 0);
+    font-size: 12px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4e4e4e;
+    color: white;
+}
+
+td {
+    color: #333;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Media Query for screens smaller than 480px */
+@media (max-width: 600px) {
+    body {
+        font-size: 0.8rem; 
+        background-size: auto;
+    }
+
+    h1 {
+        font-size: 1.2rem; 
+        padding: 5px; 
+    }
+
+    h2, h5 {
+        font-size: 1rem; 
+    }
+
+    .container_head {
+        font-size: 0.8rem; 
+    }
+
+    .citem {
+        display: block;
+        margin: 3px 0; 
+        padding: 6px; 
+        font-size: 0.7rem;
+    }
+
+    main {
+        padding: 5px; 
+        margin: 5px auto;
+        max-width: 90%;
+        background: rgba(255, 255, 255, 0.9); 
+        box-shadow: none; 
+    }
+
+    .container {
+        max-width: 100%;
+        box-sizing: border-box; 
+        padding: 0 5px;
+    }
+
+    .row {
+        margin-bottom: 5px; 
+    }
+
+    label {
+        font-size: 0.8rem; 
+        margin-bottom: 1px; 
+    }
+
+    input[type="text"], .form-control {
+        width: 100%; 
+        max-width: 100%; 
+        padding: 5px;
+        font-size: 0.8rem; 
+        box-sizing: border-box; 
+    }
+
+    .buttonfield {
+        text-align: center;
+        margin-top: 5px; 
+    }
+
+    button[type="submit"] {
+        padding: 5px 10px; 
+        font-size: 0.8rem; 
+    }
+
+    .error {
+        font-size: 0.8rem; 
+    }
+
+    table {
+        margin-top: 5px; 
+
+    th, td {
+        padding: 5px; 
+        font-size: 0.8rem;
+    }
+
+    th {
+        font-size: 0.9rem; 
+    }
+}
+
+}
