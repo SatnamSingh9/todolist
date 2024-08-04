@@ -23,7 +23,7 @@
             
             echo '<script>alert("Task set to completed")</script>'; 
             
-            include('dashboard.php');
+            include('completetask.php');
         } else{
             echo "Error: Sorry $sql.".mysqli_error($conn);
             
